@@ -13,7 +13,15 @@ class QuoteService(
     }
 
     fun updateQuote(quote: Quote): Quote {
-        return quoteRepository.save(quote)
+        val oldQuote = quote.id?.let { getQuote(it) }
+
+        oldQuote?.let { it ->
+            it.text = quote.text
+            it.author = quote.author
+            it.category = quote.category
+        }
+
+        return quoteRepository.save(oldQuote!!)
     }
 
     fun getQuote(id: Long): Quote {

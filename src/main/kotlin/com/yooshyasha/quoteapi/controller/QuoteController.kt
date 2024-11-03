@@ -17,10 +17,10 @@ class QuoteController(
         return ResponseEntity.ok(quote)
     }
 
-    @GetMapping("/getQuote/{id}")
-    fun getQuote(@PathVariable id: Long) : ResponseEntity<Quote> {
-        return ResponseEntity.ok(quoteService.getQuote(id))
-    }
+//    @GetMapping("/getQuote/{id}") TODO сделать
+//    fun getQuote(@PathVariable id: Long) : ResponseEntity<Quote> {
+//        return ResponseEntity.ok(quoteService.getQuote(id))
+//    }
 
     @GetMapping("/getAllQuotes")
     fun getAllQuotes(): ResponseEntity<List<Quote>> {
